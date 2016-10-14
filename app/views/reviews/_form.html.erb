@@ -1,0 +1,16 @@
+<%= form_for([@product, @review]) do |f| %>
+
+  <div class="row">
+    <%= f.label :body, "Review:" %>
+    <%= f.text_area :body%>
+  </div>
+
+  <div class="row">
+    <%= f.label :rating %>
+    <%= f.collection_radio_buttons :rating, Review::RATINGS, :to_i, :to_s %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit Review" %>
+  </div>
+<% end %>

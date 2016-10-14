@@ -1,0 +1,7 @@
+<h3>List of All Users</h3>
+<% @users.each do |user| %>
+  <p><%= "#{user.first_name} #{user.last_name}" %><br>
+  <%= user.email %><br>
+  Role: <%= user.role %><br>
+  <%= link_to "Delete", user_registration_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>

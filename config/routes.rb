@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    root "products#index"
+  devise_for :users
+
+  resources :products do
+    resources :reviews
+  end
+
+  namespace :admin do
+    resources :users
+  end
+
+  resources :reviews do
+    post 'upvote'
+    post 'downvote'
+  end
 end

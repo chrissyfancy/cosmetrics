@@ -1,0 +1,59 @@
+<%= image_tag("#{@product.product_photo}", size: "300x300", class: "product") %>
+
+<h3><%= @product.brand %></h3>
+<h4><%= @product.name %></h4>
+
+<p><%= "Size: #{@product.size} oz" %><br>
+<%= "Price: #{number_to_currency(@product.price)}" %><br>
+<%= "Color: #{@product.color}" %></p>
+
+
+<h4>DETAILS</h4>
+<p><strong>What it does:</strong><br>
+<%= @product.description %></p>
+
+<% if !@product.reviews.empty? %>
+  <h5>Average Rating: <%= @product.average_rating %>/5</h5>
+<% end %>
+
+<%= link_to "Back to All Products", products_path %>
+
+<hr />
+
+<h2>Reviews</h2>
+<div id="reviews">
+  <% @reviews.each do |review| %>
+    <h3><%= image_tag(review.user.profile_photo, size: "30x30") %><%= " #{review.user.first_name} #{review.user.last_name} at #{review.updated_at}" %></h3>
+    <p><%= review.body %></p>
+    <% if !current_user.nil? %>
+      <%= button_to "+1", review_upvote_path(review), class: "upvote", method: :post %>
+      <%= button_to "-1", review_downvote_path(review), class: "downvote", method: :post %><br>
+    <% end %>
+
+    <% sum = 0 %>
+    <% review.votes.each do |vote| %>
+    <%  sum += vote.score %>
+    <% end %>
+    <%= "Current Vote Score: #{sum}" %><br>
+
+    <% if !review.rating.nil? %>
+      <%= "Rating: #{review.rating}" %><br>
+    <% end %>
+
+    <% if !current_user.nil? %>
+      <% if current_user == review.user || current_user.is_admin? %>
+        <%= link_to 'Edit', edit_product_review_path(@product, review) %> |
+        <%= link_to 'Delete', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<hr />
+
+<% if !current_user.nil? %>
+  <h2>New Review</h2>
+  <div class="new-review">
+    <%= render "reviews/form" %>
+  </div>
+<% end %>

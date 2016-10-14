@@ -1,0 +1,46 @@
+<%= form_for(@product) do |f| %>
+
+  <div class="row">
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </div>
+
+  <div class="row">
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+  </div>
+
+  <div class="row">
+    <%= f.label :size, "Size (oz)" %>
+    <%= f.text_field :size%>
+  </div>
+
+  <div class="row">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+
+  <div class="row">
+    <%= f.label :product_type, "Type of Product" %>
+    <%= f.text_field :product_type %>
+  </div>
+
+  <div class="row">
+    <%= f.label :price, "Price ($)" %>
+    <%= f.text_field :price%>
+  </div>
+
+  <div class="row">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="row">
+    <%= f.label :product_photo, "Photo URL" %>
+    <%= f.text_field :product_photo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit Product" %>
+  </div>
+<% end %>
