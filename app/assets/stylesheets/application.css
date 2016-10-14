@@ -20,10 +20,6 @@ header a {
   text-transform: uppercase;
 }
 
-.product {
-  float: right;
-}
-
 .pagination {
   color: red;
   font: "Futura";
@@ -103,4 +99,46 @@ div {
 
 form.button_to {
   float: left;
+}
+
+tr {
+  margin: 10px;
+  display: inline;
+}
+
+td.products {
+  text-align: center;
+}
+
+td.products a {
+  font-weight: bold;
+}
+
+img.product {
+  float: left;
+}
+
+#reviews {
+  height: 200px;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid black;
+  overflow-y: scroll;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    color: #EE0000;
+    background-color: #EE0000;
+}
+
+tbody {
+  align-content: center;
+  align-items: center;
+}
+
+tr {
+  align-items: center;
+  align-content: center;
 }

@@ -1,0 +1,32 @@
+<h2>Reviews</h2>
+<div id="reviews">
+  <% @reviews.each do |review| %>
+    <h3><%= image_tag(review.user.profile_photo, size: "30x30") %><%= " #{review.user.first_name} #{review.user.last_name} at #{review.updated_at}" %></h3>
+    <p><%= review.body %></p>
+    <% if !current_user.nil? %>
+      <%= button_to "+1", review_upvote_path(review), class: "upvote", method: :post %>
+      <%= button_to "-1", review_downvote_path(review), class: "downvote", method: :post %><br>
+    <% end %>
+
+    <% sum = 0 %>
+    <% review.votes.each do |vote| %>
+    <%  sum += vote.score %>
+    <% end %>
+
+    <% if sum != 0 %>
+    <%= "Current Vote Score: #{sum}" %><br>
+    <% end %>
+
+    <% if !review.rating.nil? %>
+      <%= "Rating: #{review.rating}" %><br>
+    <% end %>
+
+    <% if !current_user.nil? %>
+      <% if current_user == review.user || current_user.is_admin? %>
+        <%= link_to 'Edit', edit_product_review_path(@product, review) %> |
+        <%= link_to 'Delete', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    <% end %>
+    <hr/>
+  <% end %>
+</div>
