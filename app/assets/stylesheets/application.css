@@ -21,7 +21,7 @@ header a {
 }
 
 .pagination {
-  color: red;
+  color: #CC0000;
   font: "Futura";
   text-align: center;
   font-size: 15px;
@@ -122,15 +122,15 @@ img.product {
   height: 200px;
   padding: 10px;
   margin: 10px;
-  border: 3px solid black;
+  border: 3px solid #CCCCCC;
   overflow-y: scroll;
 }
 
 hr {
     border: none;
     height: 2px;
-    color: #EE0000;
-    background-color: #EE0000;
+    color: #CCCCCC;
+    background-color: #CCCCCC;
 }
 
 tbody {
