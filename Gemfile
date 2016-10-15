@@ -2,7 +2,6 @@ source 'https://rubygems.org/'
 
 ruby '2.2.5'
 
-gem 'bundler'
 gem 'rails', '5.0.0.1'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -31,4 +30,5 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'puma'
+  gem 'spring'
 end
