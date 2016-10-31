@@ -1,7 +1,45 @@
 <% if user_signed_in? %>
-  <%= link_to 'ACCOUNT', edit_user_registration_path %> or
-  <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="nav"><%= link_to "Seph-ake-a Reviews", root_path %></li>
+        <li class="nav">Your Account
+          <ul class="menu vertical">
+            <li><%= link_to 'Edit Your Account', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li class="nav">
+          <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+          <%= submit_tag "Search", :name => nil %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 <% else %>
-  <%= link_to 'Sign in', new_user_session_path %> or
-  <%= link_to 'Register', new_user_registration_path %>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="nav"><%= link_to "Seph-ake-a Reviews", root_path %></li>
+      <li class="nav"><%= link_to 'Sign in', new_user_session_path %></li>
+      <li class="nav"><%= link_to 'Register', new_user_registration_path %></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li class="nav">
+        <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+        <%= submit_tag "Search", :name => nil %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
 <% end %>

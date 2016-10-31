@@ -1,25 +1,28 @@
-<%= image_tag("#{@product.product_photo}", size: "300x300", class: "product") %>
+<%= link_to "Back to All Products", products_path %>
 
 <table>
-  <td>
-  <h3><%= @product.brand %></h3>
-  <h4><%= @product.name %></h4>
+  <tr>
+    <td class="product image">
+      <%= image_tag("#{@product.product_photo}", size: "300x300", class: "product") %>
+    </td>
+    <td class="product description">
+      <h3><%= @product.brand %></h3>
+      <h4><%= @product.name %></h4>
 
-  <%= "Size: #{@product.size} oz" %><br>
-  <%= "Price: #{number_to_currency(@product.price)}" %><br>
-  <%= "Color: #{@product.color}" %>
+      <%= "Size: #{@product.size} oz" %><br>
+      <%= "Price: #{number_to_currency(@product.price)}" %><br>
+      <%= "Color: #{@product.color}" %>
 
-  <h4>What it does:</h4>
-  <%= @product.description %></p>
+      <h4>What it does:</h4>
+      <%= @product.description %></p>
 
-<% if !@product.reviews.empty? %>
-  <h4>Average Rating: <%= @product.average_rating %>/5</h4>
-<% end %>
+      <% if !@product.reviews.empty? %>
+        <h4>Average Rating: <%= @product.average_rating %>/5</h4>
+      <% end %>
 
-</td>
+    </td>
+  </tr>
 </table>
-
-<%= link_to "Back to All Products", products_path %>
 
 <%= render 'reviews' %>
 
