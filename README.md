@@ -1,4 +1,4 @@
-Seph-ake-a Reviews, a spin-off of Sephora.com, is a fully fleged web application that I created during my time at Launch Academy. The purpose of this challenge was to create an application to allow users to add new items and write reviews for those items.
+Seph-ake-a Reviews, a spin-off of Sephora.com, is a full-fledged web application that I created during my time at Launch Academy. The purpose of this challenge was to create an application to allow users to add new items and write reviews for those items.
 
 ### Challenge Requirements
 
