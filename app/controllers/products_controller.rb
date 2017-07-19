@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.page(params[:page]).per(5)
     end
+    @categories = Category.all
   end
 
   def show
@@ -55,7 +56,7 @@ class ProductsController < ApplicationController
 
   protected
   def product_params
-    params.require(:product).permit(:name, :brand, :description, :price, :color, :product_photo, :product_type, :size)
+    params.require(:product).permit(:name, :brand, :description, :price, :color, :product_photo, :category_id, :size)
   end
 
   def authorize_user
