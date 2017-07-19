@@ -1,6 +1,3 @@
-.top-bar-right {
-  display: inline-block;
-}
 
 div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
   background: black;
@@ -8,10 +5,32 @@ div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
   font-weight: bold;
 }
 
+.top-bar-right {
+  display: inline-block;
+}
+
+.root-link {
+  font-weight: bolder;
+}
+
+li.search-nav {
+  background: black;
+}
+
 form#search-form {
   display: inline-flex;
   background: black;
-  border: 1px solid black;
+  #search {
+    margin-right: 3px;
+  }
+}
+
+.search-button {
+  .fa-search {
+    font-size: 20px;
+    color: white;
+    background-color: black;
+  }
 }
 
 .pagination a, .pagination span {
