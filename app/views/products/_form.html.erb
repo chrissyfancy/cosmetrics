@@ -1,5 +1,17 @@
 <%= form_for(@product) do |f| %>
 
+<% if @product.errors.any? %>
+  <div id="error_explanation-products">
+    <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <div class="row">
     <%= f.label :name %>
     <%= f.text_field :name%>
@@ -21,8 +33,8 @@
   </div>
 
   <div class="row">
-    <%= f.label :product_type, "Type of Product" %>
-    <%= f.text_field :product_type %>
+    <%= f.label :category_id, "Category" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, { prompt: "Please choose a category..." }) %>
   </div>
 
   <div class="row">

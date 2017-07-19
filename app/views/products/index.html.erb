@@ -1,5 +1,11 @@
 <h1>SEPH-AKE-A</h1>
 
+<div class="row medium-unstack">
+  <% @categories.each do |category| %>
+    <div class="category columns"><%= link_to category.name, category_path(category) %></div>
+  <% end %>
+</div>
+
 <% if @products.blank? %>
   <h4>There are no products containing the term <%= params[:search] %>.</h4>
 <% end %>
