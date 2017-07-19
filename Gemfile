@@ -12,6 +12,7 @@ gem 'devise'
 gem 'kaminari'
 gem 'fog'
 gem 'foundation-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'capybara'

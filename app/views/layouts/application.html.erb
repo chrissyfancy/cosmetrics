@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
