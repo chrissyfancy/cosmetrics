@@ -7,6 +7,14 @@
         <ul class="menu vertical">
           <li><%= link_to 'Edit Your Account', edit_user_registration_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %></li>
+          <% if current_user && current_user.role == "admin" %>
+        </ul>
+        <li class="nav admin-features">Admin
+          <ul class="menu vertical">
+            <li><%= link_to "View All Users", admin_users_path %></li>
+            <li><%= link_to "Add New Product", new_product_path %></li>
+          </ul>
+          <% end %>
         <% else %>
         <li class="nav"><%= link_to 'Sign in', new_user_session_path %></li>
         <li class="nav"><%= link_to 'Register', new_user_registration_path %></li>
