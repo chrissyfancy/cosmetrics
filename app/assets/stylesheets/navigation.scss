@@ -21,7 +21,7 @@ ul.menu, ul.dropdown.menu {
 }
 
 // Navigation search bar styling
-li.search-nav {
+li.search-nav, li.nav {
   background: black;
 }
 
@@ -56,6 +56,6 @@ nav.pagination {
   text-align: center;
 }
 
-.pagination.current {
+span.page.current {
   background-color: #DE87B1
 }
