@@ -16,6 +16,10 @@ div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
   font-family: "King Basil Lite";
 }
 
+ul.menu, ul.dropdown.menu {
+  background: black;
+}
+
 // Navigation search bar styling
 li.search-nav {
   background: black;
