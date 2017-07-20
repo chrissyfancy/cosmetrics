@@ -10230,6 +10230,25 @@ table.hover tbody tr:nth-of-type(even):hover {
   clip: auto;
 }
 
+/* line 1, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/category.scss */
+#all-category-products {
+  text-align: center;
+  margin: 20px;
+}
+
+/* line 6, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/category.scss */
+.category-product {
+  text-align: center;
+  display: inline-block;
+  padding: 15px;
+  border: 2px solid black;
+}
+/* line 11, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/category.scss */
+.category-product:hover {
+  border: 5px solid #DE87B1;
+  padding: 15px;
+}
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.2.4
@@ -16743,7 +16762,7 @@ header a {
 /* line 27, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 h1 {
   text-align: center;
-  font-family: "King Basil Lite";
+  font-family: "Lemon Tuesday";
   color: #DE87B1;
 }
 
@@ -16775,36 +16794,33 @@ pre {
 /* line 54, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 a {
   text-decoration: none;
-  color: #000;
+  color: #DE87B1;
 }
 /* line 57, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
-a:visited {
-  color: #666;
-}
-/* line 60, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 a:hover {
-  color: #fff;
-  background-color: #000;
+  font-size: 1.25em;
+  color: #DE87B1;
+  font-weight: bolder;
 }
 
-/* line 67, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
+/* line 65, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 div.field, div.actions {
   margin-bottom: 10px;
 }
 
-/* line 72, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
+/* line 70, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 #notice {
   color: green;
 }
 
-/* line 76, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
+/* line 74, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-/* line 82, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
+/* line 80, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -16813,7 +16829,7 @@ div.field, div.actions {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 89, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
+/* line 87, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -16824,7 +16840,7 @@ div.field, div.actions {
   background-color: #c00;
   color: #fff;
 }
-/* line 99, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
+/* line 97, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/home_page.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
@@ -16849,45 +16865,55 @@ div.top-bar:hover, div.top-bar a:hover, li.nav.is-dropdown-submenu-parent:hover 
 /* line 14, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
 .root-link a {
   font-size: 20px;
-  font-family: "King Basil Lite";
+  font-family: "Lemon Tuesday", Helvetica, Arial;
 }
 
-/* line 20, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
-li.search-nav {
+/* line 19, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+ul.menu, ul.dropdown.menu {
   background: black;
 }
 
 /* line 24, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+li.search-nav {
+  background: black;
+}
+
+/* line 28, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
 .admin-features {
   padding-left: 15px;
 }
 
-/* line 28, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+/* line 32, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
 form#search-form {
   display: inline-flex;
   background: black;
 }
-/* line 31, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+/* line 35, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
 form#search-form #search {
   margin-right: 3px;
 }
 
-/* line 37, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+/* line 41, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
 .search-button .fa-search {
   font-size: 20px;
   color: white;
   background-color: black;
 }
 
-/* line 46, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+/* line 50, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
 .pagination a, .pagination span {
   display: inline-block;
   text-align: center;
 }
 
-/* line 51, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+/* line 55, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
 nav.pagination {
   text-align: center;
+}
+
+/* line 59, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/navigation.scss */
+.pagination.current {
+  background-color: #DE87B1;
 }
 
 /* line 1, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/product.scss */
@@ -16920,7 +16946,8 @@ td.product.description {
 
 /* line 27, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/product.scss */
 .product-name {
-  font-family: "King Basil Lite";
+  font-family: "Lemon Tuesday", Helvetica, Arial;
+  font-size: 28px;
 }
 
 /* line 5, /Users/chrissyfancy/workspace/challenges/seph-ake-a-reviews/app/assets/stylesheets/reviews.scss */
@@ -16967,4 +16994,8 @@ tbody tr:nth-child(even) {
 @font-face {
   font-family: "King Basil Lite";
   src: url(public/King-Basil-Lite.otf) format("truetype");
+}
+@font-face {
+  font-family: "Lemon Tuesday";
+  src: url(public/Lemon-Tuesday.otf) format("truetype");
 }
