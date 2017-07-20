@@ -1,6 +1,6 @@
-Product Praise is a full-fledged web application that I created during my time at Launch Academy. The purpose of this challenge was to create an application to allow users to add new items and write reviews for those items.
+Cosmetrics is a full-fledged web application that I created during my time at Launch Academy. The purpose of this challenge was to create an application to allow users to add new items and write reviews for those items.
 
-Product Praise is an application that allows it's users to review cosmetic products.
+Cosmetrics is an application that allows it's users to review cosmetic products.
 
 ### Challenge Requirements
 
@@ -59,7 +59,7 @@ Get started adding devise by following the Devise guides
 
 #### Authentication User Stories
 
-Product Praise fulfills the following user stories, and has thorough
+Cosmetrics fulfills the following user stories, and has thorough
 acceptance tests to be sure functionality is always working properly:
 
 ```no-highlight
