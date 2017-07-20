@@ -7,14 +7,23 @@
     </td>
     <td class="product description">
       <h3><%= @product.brand %></h3>
-      <h4><%= @product.name %></h4>
+      <h2 class="product-name"><%= @product.name %></h2>
 
-      <%= "Size: #{@product.size} oz" %><br>
-      <%= "Price: #{number_to_currency(@product.price)}" %><br>
-      <%= "Color: #{@product.color}" %>
+      <% if @product.size? %>
+        <%= "Size: #{@product.size} oz" %><br>
+      <% end %>
 
-      <h4>What it does:</h4>
-      <%= @product.description %></p>
+      <% if @product.price? %>
+        <%= "Price: #{number_to_currency(@product.price)}" %><br>
+      <% end %>
+
+      <% if @product.color? %>
+        <%= "Color: #{@product.color}" %><br>
+      <% end %>
+
+      <% if @product.description? %>
+        <h4>What it does:</h4><%= @product.description %></p><br>
+      <% end %>
 
       <% if !@product.reviews.empty? %>
         <h4>Average Rating: <%= @product.average_rating %>/5</h4>
@@ -24,7 +33,11 @@
   </tr>
 </table>
 
-<%= render 'reviews' %>
+<% if @reviews.empty?%>
+  <h4> There are currently no reviews for this product.</h4>
+<% else %>
+  <%= render 'reviews' %>
+<% end %>
 
 <% if !current_user.nil? %>
   <h2>New Review</h2>
