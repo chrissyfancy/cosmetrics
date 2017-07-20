@@ -6,6 +6,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+require 'valid_attribute'
+
 
 include Warden::Test::Helpers
 Warden.test_mode!
@@ -58,4 +60,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+RSpec.configure do |config|
+    config.include FactoryGirl::Syntax::Methods
 end
