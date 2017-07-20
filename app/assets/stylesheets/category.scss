@@ -1,0 +1,15 @@
+#all-category-products {
+  text-align: center;
+  margin: 20px;
+}
+
+.category-product {
+  text-align: center;
+  display: inline-block;
+  padding: 15px;
+  border: 2px solid black;
+  &:hover {
+    border: 5px solid #DE87B1;
+    padding: 15px;
+  }
+}

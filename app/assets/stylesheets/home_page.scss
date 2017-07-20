@@ -26,7 +26,7 @@ header a {
 
 h1 {
   text-align: center;
-  font-family: "King Basil Lite";
+  font-family: "Lemon Tuesday";
   color: #DE87B1;
 }
 
@@ -53,13 +53,11 @@ pre {
 
 a {
   text-decoration: none;
-  color: #000;
-  &:visited {
-    color: #666;
-  }
+  color: #DE87B1;
   &:hover {
-    color: #fff;
-    background-color: #000;
+    font-size: 1.25em;
+    color: #DE87B1;
+    font-weight: bolder;
   }
 }
 
