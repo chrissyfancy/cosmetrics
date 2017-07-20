@@ -1,0 +1,103 @@
+* {
+  background-color: #fff;
+  color: #333;
+  font-family: "Source Serif Pro", "Helvetica", sans-serif;
+  line-height: 18px;
+  font-size: 12px;
+}
+
+.app {
+  margin: 20px;
+}
+
+header {
+  color: white;
+  background-color: black;
+  padding: 10px;
+}
+
+header a {
+  color: white;
+  font: arial;
+  margin: 7px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+h1 {
+  text-align: center;
+  font-family: "King Basil Lite";
+  color: #DE87B1;
+}
+
+h2 {
+ font-size: 20px;
+ font-weight: bolder;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+h4, label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}

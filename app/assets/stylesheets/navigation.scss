@@ -1,8 +1,10 @@
-
 div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
   background: black;
   color: white;
   font-weight: bold;
+  &:hover {
+    color: #DE87B1;
+  }
 }
 
 .top-bar-right {
@@ -14,6 +16,7 @@ div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
   font-family: "King Basil Lite";
 }
 
+// Navigation search bar styling
 li.search-nav {
   background: black;
 }
@@ -37,6 +40,8 @@ form#search-form {
     background-color: black;
   }
 }
+
+// Pagination styling
 
 .pagination a, .pagination span {
   display: inline-block;
