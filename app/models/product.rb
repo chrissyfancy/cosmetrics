@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
 
-  max_paginates_per 5
+  max_paginates_per 10
 
   validates :name, presence: true
   validates :brand, presence: true
