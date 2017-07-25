@@ -15,6 +15,5 @@ RSpec.describe User, type: :model do
     it { should_not have_valid(:role).when(nil, 1)}
 
     it { should have_valid(:profile_photo).when('www.google.com/picture.jpg') }
-
   end
 end
