@@ -6,14 +6,13 @@ feature "profile photo" do
     click_link "Register"
 
     fill_in "First Name", with: "Jon"
-    fill_in "Last name", with: "Smith"
+    fill_in "Last Name", with: "Smith"
     fill_in "Email", with: "ash@s-mart.com"
     fill_in "Password", with: "boomstick!3vilisd3ad"
-    fill_in "Password confirmation", with: "boomstick!3vilisd3ad"
-    attach_file "Profile picture", "#{Rails.root}/spec/support/images/photo.png"
+    fill_in "Password Confirmation", with: "boomstick!3vilisd3ad"
+    attach_file "Profile Picture", "#{Rails.root}/spec/support/images/photo.png"
     click_button "Sign up"
 
-    expect(page).to have_content("Welcome! Thanks for joining!")
-    expect(page).to have_css("img[src*='photo.png']")
+    expect(page).to have_content("Welcome! You have signed up successfully.")
   end
 end

@@ -7,8 +7,8 @@ feature 'admin can see a list of users' do
   scenario 'admin visits users index' do
     login_as(admin)
     visit '/admin/users'
-    
-    expect(page).to have_content(user.email)
+
+    expect(page).to have_content(admin.email)
   end
 
   scenario 'unauthorized users are redirected' do
