@@ -35,6 +35,9 @@ form#search-form {
   #search {
     margin-right: 3px;
   }
+  @media #{$small-only} {
+    text-align: center;
+  }
 }
 
 .search-button {
