@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-    root "products#index"
+  root "products#index"
+
+  namespace :admin do
+    resources :users
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :products
+    end
+  end
+
   devise_for :users
   resources :categories
 
@@ -7,12 +18,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  namespace :admin do
-    resources :users
-  end
-
   resources :reviews do
     post 'upvote'
     post 'downvote'
   end
+
 end

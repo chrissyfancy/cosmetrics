@@ -1,37 +1,6 @@
 <%= link_to "Back to All Products", products_path %>
 
-<table>
-  <tr>
-    <td class="product image">
-      <%= image_tag("#{@product.product_photo}", size: "300x300", class: "product") %>
-    </td>
-    <td class="product description">
-      <h3><%= @product.brand %></h3>
-      <h2 class="product-name"><%= @product.name %></h2>
-
-      <% if @product.size? %>
-        <%= "Size: #{@product.size} oz" %><br>
-      <% end %>
-
-      <% if @product.price? %>
-        <%= "Price: #{number_to_currency(@product.price)}" %><br>
-      <% end %>
-
-      <% if @product.color? %>
-        <%= "Color: #{@product.color}" %><br>
-      <% end %>
-
-      <% if @product.description? %>
-        <h4>What it does:</h4><%= @product.description %></p><br>
-      <% end %>
-
-      <% if !@product.reviews.empty? %>
-        <h4>Average Rating: <%= @product.average_rating %>/5</h4>
-      <% end %>
-
-    </td>
-  </tr>
-</table>
+<div id="react-app" data-product-id="<%= @product.id %>"></div>
 
 <% if @reviews.empty?%>
   <h4> There are currently no reviews for this product.</h4>
