@@ -1,44 +1,76 @@
+var path = require('path');
+
 module.exports = function(config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine'],
-    files: [
-      'app/javascript/react/test/testHelper.js',
-    ],
+    browsers: ['PhantomJS'],
 
-    exclude: [
+    frameworks: ['jasmine'],
+
+    files: [
+      '../node_modules/babel-polyfill/dist/polyfill.js',
+      './test/testHelper.js',
+
+      '../node_modules/whatwg-fetch/fetch.js'
     ],
 
     preprocessors: {
-      'app/javascript/react/test/testHelper.js': ['webpack']
+      '../react/test/testHelper.js': [
+        'webpack',
+        'sourcemap'
+      ]
     },
 
     webpack: {
+      devtool: 'eval-source-map',
+      externals: {
+        'cheerio': 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+      },
       module: {
         loaders: [
           {
-            test: /\.jsx?/,
+            test: /\.jsx?$/,
             exclude: /node_modules/,
             loader: 'babel-loader'
+          },
+          {
+            test: /\.jsx?$/,
+            exclude: /(node_modules|test)/,
+            loader: 'isparta-loader'
+          },
+
+          {
+            include: /\.json$/,
+            loader: 'json-loader'
           }
         ]
       },
-      externals: {
-        cheerio: 'window',
-        'react/addons': 'react',
-        'react/lib/ExecutionEnvironment': 'react',
-        'react/lib/ReactContext': 'react',
-        'react-addons-test-utils': 'react-dom',
+
+      resolve: {
+        modules: ['src', 'node_modules']
       }
     },
 
-    reporters: ['progress'],
-    port: 9876,
-    colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    concurrency: Infinity
+    webpackMiddleware: {
+      noInfo: true
+    },
+
+    reporters: [
+      'spec',
+      'coverage'
+    ],
+
+    specReporter: {
+      maxLogLines: 1,
+      suppressPassed: true
+    },
+
+    coverageReporter: {
+      dir: 'coverage',
+      subdir: '.',
+      type: 'html'
+    }
   })
 }

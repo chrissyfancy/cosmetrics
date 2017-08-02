@@ -1,12 +1,20 @@
-import 'babel-polyfill';
-
-import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
+import React from 'react';
+import $ from 'jquery';
+import 'jasmine-ajax';
+
+Object.assign(global, {
+  jasmineEnzyme,
+  mount,
+  React,
+  shallow,
+  $
+});
 
 beforeEach(() => {
   jasmineEnzyme();
-})
+});
 
 // function to require all modules for a given context
 let requireAll = requireContext => {

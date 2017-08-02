@@ -22,4 +22,8 @@
 # Ignore environment variables
 .env
 /public/packs
+
+# Ignore React folders
 /node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
