@@ -15,8 +15,7 @@ class Product < ApplicationRecord
       reviews.each do |review|
         sum += review.rating.to_f
       end
-      sum = sum / reviews.length
-      sum = sum.round(1)
+      sum = (sum / reviews.length).round(1)
     else
       sum = 0.0
     end

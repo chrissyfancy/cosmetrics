@@ -1,0 +1,11 @@
+.devise {
+  h1 {
+    font-family: "Lemon Tuesday";
+  }
+
+  @media #{$medium-up} {
+    padding: 3%;
+    border: 3px solid black;
+    margin: 3% 20%;
+  }
+}
