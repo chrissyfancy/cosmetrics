@@ -65,7 +65,7 @@ class ProductShowContainer extends React.Component {
   render() {
     let productImage;
     if (this.state.product.product_photo) {
-      productImage = <img className="product" src={this.state.product.product_photo}/>
+      productImage = <img className="product" size="400px" src={this.state.product.product_photo}/>
     }
 
     let productSize;

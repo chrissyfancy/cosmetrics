@@ -2,12 +2,27 @@ import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 
 const ReviewShow = props => {
-  console.log(props.reviewer);
+  let profilePhoto;
+  if (props.reviewer.profile_photo.url) {
+    profilePhoto = <img className="review-profile-photo" src={props.reviewer.profile_photo.url} />
+  }
+
+  let options = {
+    weekday: "long", year: "numeric", month: "short",
+    day: "numeric", hour: "2-digit", minute: "2-digit"
+  };
+  let reviewTime = (new Date(props.review.updated_at).toLocaleTimeString("en-us", options));
+
+  let deleteButton;
+  if (props.currentUser === props.reviewer.id) {
+    <input className="button" type="submit" value="Delete" />
+  }
+
   return (
-    <div id="review">
-      <h3>"Profile Photo for User"</h3>
+    <div class="review">
+      {profilePhoto}
+      <h4>{props.reviewer.first_name} {props.reviewer.last_name} left a review on {reviewTime}</h4>
       <p>{props.review.body}</p>
-      <p> "Button for upvotes and downvotes if user is signed in & functionality" </p>
       <StarRatingComponent
         name='rating'
         editing={false}
@@ -20,7 +35,7 @@ const ReviewShow = props => {
         }}
         renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
       />
-      <p>"Edit or delete functionality if user or admin"</p>
+      {deleteButton}
       <hr/>
     </div>
   );
