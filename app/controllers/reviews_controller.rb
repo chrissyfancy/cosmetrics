@@ -1,25 +1,5 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @review = Review.new
-    @product = Product.find(params[:id])
-  end
-
-  def create
-    @user = current_user
-    @product = Product.find(params[:product_id])
-    @review = Review.new(review_params)
-    @review.product_id = params[:product_id]
-    @review.user = current_user
-    if @review.save
-      ReviewMailer.new_review(@review).deliver_later
-      redirect_to @product, notice: "Thank you. Your review has been saved."
-    else
-      flash[:error] = "There was an issue saving with your review."
-      render "products/show"
-    end
-  end
-
   def edit
     @review = Review.find(params[:id])
     @product = Product.find(params[:product_id])
