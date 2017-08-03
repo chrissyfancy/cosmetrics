@@ -2,7 +2,7 @@ import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 
 const ReviewShow = props => {
-  console.log(props.review.body)
+  console.log(props.reviewer);
   return (
     <div id="review">
       <h3>"Profile Photo for User"</h3>

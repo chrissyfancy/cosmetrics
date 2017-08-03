@@ -17,6 +17,7 @@ class ReviewContainer extends React.Component {
     this.handleNewReview = this.handleNewReview.bind(this);
     this.onStarClickHalfStar = this.onStarClickHalfStar.bind(this);
     this.validateNewReview = this.validateNewReview.bind(this);
+    this.getUserInfo = this.getUserInfo.bind(this);
   }
 
   componentDidMount() {
@@ -73,6 +74,24 @@ class ReviewContainer extends React.Component {
     this.setState({ reviewRating: nextValue });
   }
 
+  getUserInfo(userId) {
+    fetch(`/api/v1/users/${userId}`)
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        return body
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   render() {
     let errorDiv;
     let errorItems;
@@ -84,12 +103,14 @@ class ReviewContainer extends React.Component {
     }
 
     let allReviews = this.props.reviews.map(review => {
-        return(
-          <ReviewShow
-            key={review.id}
-            review={review}
-          />
-        )
+      let user = this.getUserInfo(review.user_id)
+      return(
+        <ReviewShow
+          key={review.id}
+          review={review}
+          reviewer={user}
+        />
+      )
     })
 
     return (
