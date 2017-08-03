@@ -10,8 +10,14 @@ div#reviews {
   overflow-y: scroll;
 }
 
-form.button_to {
-  display: inline-block;
+input.button {
+  background: #DE87B1;
+  border: 3px solid #DE87B1;
+  &:hover {
+    color: #DE87B1;
+    background: white;
+    border: 3px solid #DE87B1;
+  }
 }
 
 hr {
