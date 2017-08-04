@@ -2,14 +2,15 @@ import React from 'react';
 
 const ReviewField = props => {
   return (
-    <label>{props.label}
+    <div>
+      <label>New Review</label>
       <input
-        name={props.name}
+        name='review'
         onChange={props.handlerFunction}
         type='text'
         value={props.content}
       />
-    </label>
+    </div>
   );
 }
 

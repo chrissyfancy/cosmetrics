@@ -11,10 +11,13 @@ class Api::V1::ReviewsController < ApplicationController
     review.product_id = params[:product_id]
     review.user = current_user
     if review.save
-      ReviewMailer.new_review(@review).deliver_later
-      render json: { reviews: Review.where(product_id: params[:product_id]) }, status: :created
+      ReviewMailer.new_review(review).deliver_later
+      product = Product.find(params[:product_id])
+      reviews = ProductSerializer.reviews(product)
+      average_rating = product.average_rating
+      render json: { product: product, rating: average_rating, reviews: reviews}
     else
-      render json: { error: "There was an issue saving with your review." }, status: :unprocessable_entity
+      render json: { error: "There was an issue saving your review." }, status: :unprocessable_entity
     end
   end
 
@@ -27,6 +30,6 @@ class Api::V1::ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:body, :rating)
+    params.require(:review).permit(:body, :rating, :product_id, :user_id)
   end
 end

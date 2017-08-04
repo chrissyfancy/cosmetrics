@@ -19,7 +19,7 @@ const ReviewShow = props => {
   }
 
   return (
-    <div class="review">
+    <div className="review">
       {profilePhoto}
       <h4>{props.reviewer.first_name} {props.reviewer.last_name} left a review on {reviewTime}</h4>
       <p>{props.review.body}</p>

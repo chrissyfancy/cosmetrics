@@ -1,8 +1,9 @@
 import React from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import ReviewContainer from './ReviewContainer';
+import ProductDetails from './components/ProductDetails'
 
-class ProductShowContainer extends React.Component {
+class ProductContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,65 +64,13 @@ class ProductShowContainer extends React.Component {
   }
 
   render() {
-    let productImage;
-    if (this.state.product.product_photo) {
-      productImage = <img className="product" size="400px" src={this.state.product.product_photo}/>
-    }
-
-    let productSize;
-    if (this.state.product.size) {
-      productSize = <p>Size: {this.state.product.size} oz</p>
-    }
-
-    let productPrice;
-    if (this.state.product.price) {
-      productPrice = <p>Price: {this.state.product.price}</p>
-    }
-
-    let productColor;
-    if (this.state.product.color) {
-      productColor = <p>Color: {this.state.product.color}</p>
-    }
-
-    let productDescription;
-    if (this.state.product.description) {
-      productDescription = <p><h4>What It Does:</h4>{this.state.product.description}</p>
-    }
-
     return(
       <div>
-        <table>
-          <tbody>
-            <tr>
-              <td className="product image">{productImage}</td>
-              <td className="product description">
-                <h3>{this.state.product.brand}</h3>
-                <h2 className="product-name">{this.state.product.name}</h2>
-                <p>{productSize}</p>
-                <p>{productPrice}</p>
-                <p>{productColor}</p>
-                <p>{productDescription}</p>
-                <h4>Average Rating:</h4>
-                <StarRatingComponent
-                  name='rating'
-                  editing={false}
-                  starCount={5}
-                  value={this.state.rating}
-                  starColor='#DE87B1'
-                  emptyStarColor='#333'
-                  renderStarIcon={(index, value) => {
-                    return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
-                  }}
-                  renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <ProductDetails product={this.state.product} />
         <ReviewContainer reviews={this.state.reviews} addNewReview={this.addNewReview} />
       </div>
     )
   }
 }
 
-export default ProductShowContainer
+export default ProductContainer

@@ -1,6 +1,7 @@
 import React from 'react';
-import ReviewField from './ReviewField';
-import ReviewShow from './ReviewShow';
+import RatingField from './../components/RatingField';
+import ReviewField from './../components/ReviewField';
+import ReviewShow from './../components/ReviewShow';
 import StarRatingComponent from 'react-star-rating-component';
 
 class ReviewContainer extends React.Component {
@@ -10,7 +11,7 @@ class ReviewContainer extends React.Component {
       errors: {},
       newReview: '',
       reviewRating: '',
-      currentUser: ''
+      currentUser: '',
     }
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -25,20 +26,14 @@ class ReviewContainer extends React.Component {
     this.setState({ currentUser: currentUserId });
   }
 
-  handleClearForm(event) {
-    event.preventDefault();
-    this.setState({
-      errors: {},
-      newReview: '',
-      reviewRating: ''
-    })
+  handleNewReview(event) {
+    this.validateNewReview(event.target.value)
+    this.setState({ newReview: event.target.value })
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
-    if (
-      this.validateNewReview(this.state.newReview)
-    ) {
+    if (this.validateNewReview(this.state.newReview)) {
       let formPayload = {
         review: {
           body: this.state.newReview,
@@ -49,11 +44,6 @@ class ReviewContainer extends React.Component {
       this.props.addNewReview(formPayload);
       this.handleClearForm(event);
     }
-  }
-
-  handleNewReview(event) {
-    this.validateNewReview(event.target.value)
-    this.setState({ newReview: event.target.value })
   }
 
   validateNewReview(review) {
@@ -67,6 +57,15 @@ class ReviewContainer extends React.Component {
       this.setState({ errors: errorState })
       return true
     }
+  }
+
+  handleClearForm(event) {
+    event.preventDefault();
+    this.setState({
+      errors: {},
+      newReview: '',
+      reviewRating: ''
+    })
   }
 
   onStarClickHalfStar(nextValue, prevValue, name) {
@@ -83,38 +82,38 @@ class ReviewContainer extends React.Component {
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
 
-    let allReviews = this.props.reviews.map(review => {
-      return(
-        <ReviewShow
-          key={review.id}
-          review={review.review}
-          reviewer={review.user}
-          currentUser={this.state.currentUser}
-        />
-      )
-    })
+    let showReviews;
+    if (this.props.reviews.length > 0) {
+      showReviews = this.props.reviews.map(review => {
+        return(
+          <ReviewShow
+            key={review.review.id}
+            review={review.review}
+            reviewer={review.user}
+            currentUser={this.state.currentUser}
+          />
+        )
+      })
+    } else {
+      showReviews = <h4>There are currently no reviews for this product.</h4>
+    }
 
     return (
       <div>
-        <h2>Reviews</h2>
-        <div id="reviews">{allReviews}</div>
+        <div id="reviews">
+          <h2 className="reviews">Reviews</h2>
+          {showReviews}
+        </div>
         <form className="callout" onSubmit={this.handleFormSubmit}>
           {errorDiv}
           <ReviewField
             content={this.state.reviews}
-            label='New Review'
-            name='review'
             handlerFunction={this.handleNewReview}
           />
-          <h3>Rating</h3>
-          <StarRatingComponent
-            name="new-review-rating"
+          <RatingField
+            onStarClick={this.onStarClickHalfStar}
             value={this.state.rating_half_star}
             onStarClick={this.onStarClickHalfStar}
-            renderStarIcon={(index, value) => {
-              return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
-            }}
-            renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
           />
           <div className="button-group">
             <input className="button" type="submit" value="Submit" />
