@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div#reviews {
-  height: 25%;
+  height: 425px;
   padding: 15px;
   border: 1px solid #CCCCCC;
   overflow-y: scroll;
@@ -12,7 +12,17 @@ div#reviews {
 
 h2.reviews {
   font-family: "Lemon Tuesday", Helvetica, Arial;
-  font-size: 28px;
+  font-size: 32px;
+}
+
+label.new-review {
+  font-family: "Lemon Tuesday", Helvetica, Arial;
+  font-size: 32px;
+}
+
+label.new-rating {
+  font-family: "Lemon Tuesday", Helvetica, Arial;
+  font-size: 20px;
 }
 
 img.review-profile-photo {
