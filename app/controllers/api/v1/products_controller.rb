@@ -1,12 +1,10 @@
 class Api::V1::ProductsController < ApplicationController
   def index
-    render json: { products: ProductSerializer.products }
+    render json: { products: Product.all }
   end
 
   def show
     product = Product.find(params[:id])
-    reviews = ProductSerializer.reviews(product)
-    average_rating = product.average_rating
-    render json: { product: product, rating: average_rating, reviews: reviews}
+    render json: { product: product, rating: product.average_rating }
   end
 end
