@@ -29,7 +29,6 @@ class ReviewFormContainer extends React.Component {
   }
 
   addNewReview(review) {
-    console.log(this.state.productId);
     fetch(`/api/v1/products/${this.state.productId}/reviews`, {
       method: "POST",
       credentials: "same-origin",
