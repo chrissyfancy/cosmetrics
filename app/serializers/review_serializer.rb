@@ -1,11 +1,7 @@
-class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :products
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id
 
-  def self.products
-    Product.all
-  end
-
-  def self.reviews(product)
+  def self.product_reviews(product)
     user_reviews = []
     reviews = Review.where(product_id: product).order(created_at: "DESC")
 
