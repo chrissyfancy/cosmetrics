@@ -1,9 +1,15 @@
 import React from 'react';
 import ProductContainer from './containers/ProductContainer'
+import ReviewContainer from './containers/ReviewContainer'
+import ReviewFormContainer from './containers/ReviewFormContainer'
 
 const App = props => {
   return(
-    <ProductContainer />
+    <div>
+      <ProductContainer />
+      <ReviewContainer />
+      <ReviewFormContainer />
+    </div>
   )
 }
 
