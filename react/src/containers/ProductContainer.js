@@ -58,7 +58,7 @@ class ProductContainer extends React.Component {
     })
     .then(response => response.json())
     .then(responseData => {
-      return this.setState({ reviews: this.state.reviews.concat(responseData) })
+      return this.setState({ reviews: responseData.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

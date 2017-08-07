@@ -42,7 +42,7 @@ class ReviewContainer extends React.Component {
         }
       };
       this.props.addNewReview(formPayload);
-      this.handleClearForm(event);
+      this.handleClearForm();
     }
   }
 
@@ -59,8 +59,8 @@ class ReviewContainer extends React.Component {
     }
   }
 
-  handleClearForm(event) {
-    event.preventDefault();
+  handleClearForm() {
+    console.log("Handle clear form");
     this.setState({
       errors: {},
       newReview: '',
@@ -107,7 +107,7 @@ class ReviewContainer extends React.Component {
         <form className="callout" onSubmit={this.handleFormSubmit}>
           {errorDiv}
           <ReviewField
-            content={this.state.reviews}
+            content={this.state.newReview}
             handlerFunction={this.handleNewReview}
           />
           <RatingField
