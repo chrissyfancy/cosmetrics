@@ -18,9 +18,29 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def show
+    render json: { review: Review.find(params[:id]) }
+  end
+
+  def update
+    review = Review.find(params[:id])
+    review.product_id = params[:product_id]
+    review.user = current_user
+    review.update(review_params)
+    if review.save
+      render json: { review: review }
+    else
+      render json: { error: "There was an issue saving your review." }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
     product = Product.find(params[:product_id])
-    reviews = ReviewSerializer.product_reviews(params[:product_id])
-    render json: { product: product, rating: product.average_rating, reviews: reviews }
+    Review.destroy(params[:id])
+    if !review
+      render json: { message: "Review successfully deleted"}
+    else
+      render json: { error: "There was an error removing your review." }
+    end
   end
 
   private

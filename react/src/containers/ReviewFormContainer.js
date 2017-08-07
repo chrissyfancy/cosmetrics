@@ -47,10 +47,7 @@ class ReviewFormContainer extends React.Component {
       }
     })
     .then(response => response.json())
-    .then(responseData => {
-      console.log(responseData);
-      return responseData
-    })
+    .then(responseData => { return responseData })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
@@ -96,7 +93,6 @@ class ReviewFormContainer extends React.Component {
       newReview: '',
       reviewRating: ''
     })
-    window.scrollTo(0, 0)
   }
 
   onStarClickHalfStar(nextValue, prevValue, name) {
@@ -113,22 +109,31 @@ class ReviewFormContainer extends React.Component {
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
 
+    let showReviewForm
+    if (this.state.currentUser) {
+      showReviewForm = "show"
+    } else {
+      showReviewForm = "hide"
+    }
+
     return (
-      <form className="callout" onSubmit={this.handleFormSubmit}>
-        {errorDiv}
-        <ReviewField
-          content={this.state.newReview}
-          handlerFunction={this.handleNewReview}
-        />
-        <RatingField
-          onStarClick={this.onStarClickHalfStar}
-          value={this.state.rating_half_star}
-          onStarClick={this.onStarClickHalfStar}
-        />
-        <div className="button-group">
-          <input className="button" type="submit" value="Submit" />
-        </div>
-      </form>
+      <div className={showReviewForm}>
+        <form className={showReviewForm} className="callout" onSubmit={this.handleFormSubmit}>
+          {errorDiv}
+          <ReviewField
+            content={this.state.newReview}
+            handlerFunction={this.handleNewReview}
+            />
+          <RatingField
+            onStarClick={this.onStarClickHalfStar}
+            value={this.state.rating_half_star}
+            onStarClick={this.onStarClickHalfStar}
+            />
+          <div className="button-group">
+            <input className="button" type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
     );
   }
 }

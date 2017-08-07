@@ -9,21 +9,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       resources :products do
-        resources :reviews
+        resources :reviews do
+          resources :users do
+            resources :votes
+          end
+        end
       end
     end
   end
 
   devise_for :users
   resources :categories
-
-  resources :products do
-    resources :reviews
-  end
-
-  resources :reviews do
-    post 'upvote'
-    post 'downvote'
-  end
-
+  resources :products
 end

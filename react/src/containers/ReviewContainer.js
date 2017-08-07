@@ -9,6 +9,7 @@ class ReviewContainer extends React.Component {
       productId: '',
       reviews: []
     }
+    this.deleteReview = this.deleteReview.bind(this)
   }
 
   componentWillMount() {
@@ -37,6 +38,23 @@ class ReviewContainer extends React.Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  // deleteReview(review) {
+  //   fetch(`/api/v1/products/${this.state.productId}/reviews/${review}`, {
+  //     method: "DELETE"
+  //   })
+  //   .then(response => {
+  //     if (response.ok) {
+  //       return response;
+  //     } else {
+  //       let errorMessage = `${response.status} (${response.statusText})`,
+  //           error = new Error(errorMessage);
+  //       throw(error);
+  //     }
+  //   })
+  //   .then(response => response.json())
+  //   .catch(error => console.error(`Error in fetch: ${error.message}`));
+  // }
+  //
   render() {
     let showReviews;
     if (this.state.reviews.length > 0) {
@@ -47,6 +65,7 @@ class ReviewContainer extends React.Component {
             review={review.review}
             reviewer={review.user}
             currentUser={this.state.currentUser}
+            handleDelete={this.deleteReview}
           />
         )
       })

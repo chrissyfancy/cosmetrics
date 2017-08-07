@@ -1,8 +1,10 @@
 class Review < ApplicationRecord
   RATINGS = [1, 2, 3, 4, 5]
+
   belongs_to :user
   belongs_to :product
   has_many :votes, dependent: :destroy
+
   validates :user_id, presence: true
   validates :product_id, presence: true
   validates :body, presence: true
