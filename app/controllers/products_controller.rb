@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    if current_user
+      @user_id = current_user.id
+    else
+      @user_id = ''
+    end
   end
 
   def new
