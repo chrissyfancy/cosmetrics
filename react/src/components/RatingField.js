@@ -4,7 +4,7 @@ import StarRatingComponent from 'react-star-rating-component';
 const RatingField = props => {
   return (
     <div>
-      <h3>Rating</h3>
+      <label className="new-rating">Rating</label>
       <StarRatingComponent
         name="new-review-rating"
         value={props.value}
