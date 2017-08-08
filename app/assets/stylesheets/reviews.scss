@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div#reviews {
-  height: 425px;
+  max-height: 425px;
   padding: 15px;
   border: 1px solid #CCCCCC;
   overflow-y: scroll;

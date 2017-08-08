@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     if current_user
       @user_id = current_user.id
     else
-      @user_id = ''
+      @user_id = ""
     end
   end
 

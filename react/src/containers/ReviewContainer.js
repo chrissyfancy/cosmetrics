@@ -11,7 +11,7 @@ class ReviewContainer extends React.Component {
       errors: {},
       newReview: '',
       reviewRating: '',
-      currentUser: '',
+      currentUser: ''
     }
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -60,12 +60,7 @@ class ReviewContainer extends React.Component {
   }
 
   handleClearForm() {
-    console.log("Handle clear form");
-    this.setState({
-      errors: {},
-      newReview: '',
-      reviewRating: ''
-    })
+    this.setState({ errors: {}, newReview: '', reviewRating: '' })
   }
 
   onStarClickHalfStar(nextValue, prevValue, name) {
@@ -91,6 +86,7 @@ class ReviewContainer extends React.Component {
             review={review.review}
             reviewer={review.user}
             currentUser={this.state.currentUser}
+            handleDelete={this.props.deleteReview}
           />
         )
       })
@@ -98,13 +94,10 @@ class ReviewContainer extends React.Component {
       showReviews = <h4>There are currently no reviews for this product.</h4>
     }
 
-    return (
-      <div>
-        <div id="reviews">
-          <h2 className="reviews">Reviews</h2>
-          {showReviews}
-        </div>
-        <form className="callout" onSubmit={this.handleFormSubmit}>
+    let showReviewForm
+    if (this.state.currentUser !== '') {
+      showReviewForm =
+        <form className={showReviewForm} className="callout" onSubmit={this.handleFormSubmit}>
           {errorDiv}
           <ReviewField
             content={this.state.newReview}
@@ -119,6 +112,16 @@ class ReviewContainer extends React.Component {
             <input className="button" type="submit" value="Submit" />
           </div>
         </form>
+    }
+
+
+    return (
+      <div>
+        <div id="reviews">
+          <h2 className="reviews">Reviews</h2>
+          {showReviews}
+        </div>
+        {showReviewForm}
       </div>
     );
   }

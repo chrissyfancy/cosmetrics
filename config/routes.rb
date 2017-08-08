@@ -10,16 +10,18 @@ Rails.application.routes.draw do
       resources :users
       resources :products do
         resources :reviews
+        resources :reviews do
+          resources :users do
+            resources :votes
+          end
+        end
       end
     end
   end
 
   devise_for :users
   resources :categories
-
-  resources :products do
-    resources :reviews
-  end
+  resources :products
 
   resources :reviews do
     post 'upvote'

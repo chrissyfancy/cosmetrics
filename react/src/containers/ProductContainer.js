@@ -14,6 +14,7 @@ class ProductContainer extends React.Component {
       productId: ''
     }
     this.addNewReview = this.addNewReview.bind(this);
+    this.deleteReview = this.deleteReview.bind(this);
   }
 
   componentDidMount() {
@@ -63,11 +64,39 @@ class ProductContainer extends React.Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  deleteReview(event) {
+    fetch(`/api/v1/products/${this.state.productId}/reviews/${event.target.id}`, {
+      method: "DELETE"
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(responseData => {
+        return this.setState({ reviews: responseData.reviews })
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    }
+
   render() {
     return(
       <div>
-        <ProductDetails product={this.state.product} rating={this.state.rating} />
-        <ReviewContainer reviews={this.state.reviews} addNewReview={this.addNewReview} />
+        <ProductDetails
+          product={this.state.product}
+          rating={this.state.rating}
+        />
+        <ReviewContainer
+          reviews={this.state.reviews}
+          addNewReview={this.addNewReview}
+          productId={this.state.productId}
+          deleteReview={this.deleteReview}
+        />
       </div>
     )
   }

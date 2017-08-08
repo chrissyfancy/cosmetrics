@@ -14,8 +14,14 @@ const ReviewShow = props => {
   let reviewTime = (new Date(props.review.updated_at).toLocaleTimeString("en-us", options));
 
   let deleteButton;
-  if (props.currentUser === props.reviewer.id) {
-    <input className="button" type="submit" value="Delete" />
+  if (props.currentUser == props.reviewer.id) {
+    deleteButton = <input
+      id={props.review.id}
+      onClick={props.handleDelete}
+      className="button"
+      type="submit"
+      value="Delete"
+    />
   }
 
   return (
