@@ -14,7 +14,6 @@ gem 'kaminari'
 gem 'fog'
 gem 'foundation-rails'
 gem 'font-awesome-sass'
-gem 'webpacker'
 
 group :development, :test do
   gem 'capybara'
