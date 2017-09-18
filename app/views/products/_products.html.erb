@@ -5,7 +5,8 @@
         <%= link_to image_tag(product.product_photo, size: "150x150"), product_path(product) %><br>
         <%= link_to product.brand.upcase, product_path(product) %><br>
         <%= product.name %><br>
-        <%= number_to_currency(product.price)%>
+        <%= number_to_currency(product.price)%><br>
+        <%= product.product_value(product) %>
         <% if !current_user.nil? && current_user.role == "admin" %>
           <%= link_to "Edit", edit_product_path(product) %> |
           <%= link_to "Delete", product, method: :delete, data: { confirm: 'Are you sure?' } %><br><br>
