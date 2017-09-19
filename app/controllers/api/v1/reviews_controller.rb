@@ -14,6 +14,8 @@ class Api::V1::ReviewsController < ApplicationController
       product = Product.find(params[:product_id])
       reviews = ProductSerializer.reviews(product)
       average_rating = product.average_rating
+      product.average_value = product.product_value(product).to_f
+      product.save!
       render json: { product: product, rating: average_rating, reviews: reviews}
     else
       render json: { error: "There was an issue saving your review." }, status: :unprocessable_entity
@@ -33,6 +35,7 @@ class Api::V1::ReviewsController < ApplicationController
       product = Product.find(params[:product_id])
       reviews = ProductSerializer.reviews(product)
       average_rating = product.average_rating
+      product.average_value = product.product_value(product)
       render json: { product: product, rating: average_rating, reviews: reviews}
     else
       render json: { error: "There was an issue saving your review." }, status: :unprocessable_entity
@@ -45,11 +48,12 @@ class Api::V1::ReviewsController < ApplicationController
     product = Product.find(params[:product_id])
     reviews = ProductSerializer.reviews(product)
     average_rating = product.average_rating
+    product.average_value = product.product_value(product)
     render json: { product: product, rating: average_rating, reviews: reviews}
   end
 
   private
   def review_params
-    params.require(:review).permit(:body, :rating, :product_id, :user_id)
+    params.require(:review).permit(:body, :rating, :product_id, :months_product_lasts, :times_used_per_week, :user_id)
   end
 end

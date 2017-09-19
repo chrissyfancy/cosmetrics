@@ -5,9 +5,9 @@ class Product < ApplicationRecord
 
   max_paginates_per 10
 
+  validates :average_value, presence: true
   validates :name, presence: true
   validates :brand, presence: true
-
 
   def average_rating
     sum = 0.0
@@ -15,10 +15,29 @@ class Product < ApplicationRecord
       reviews.each do |review|
         sum += review.rating.to_f
       end
-      sum = (sum / reviews.length).round(1)
-    else
-      sum = 0.0
+      return (sum/reviews.length).round(1)
     end
+  end
+
+  def product_value(product)
+    sum = 0.0
+    if !product.reviews.empty?
+      product.reviews.each do |review|
+        sum += product_lifespan(review) / price_per_unit(product)
+      end
+      average_product_value = (sum / product.reviews.length).to_f
+      return (average_product_value * average_rating).to_f
+    end
+  end
+
+  def product_lifespan(review)
+    usage_per_month = (review.times_used_per_week / 7.to_f) * 30.42
+    months_product_lasts = review.months_product_lasts.to_f
+    return usage_per_month * months_product_lasts
+  end
+
+  def price_per_unit(product)
+    (product.price / product.size).to_f
   end
 
   def self.search(search)
