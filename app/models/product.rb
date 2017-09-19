@@ -6,7 +6,6 @@ class Product < ApplicationRecord
   max_paginates_per 10
 
   validates :average_value, presence: true
-  validates :average_value, numericality: { only_integer: true }
   validates :name, presence: true
   validates :brand, presence: true
 
@@ -27,7 +26,7 @@ class Product < ApplicationRecord
         sum += product_lifespan(review) / price_per_unit(product)
       end
       average_product_value = (sum / product.reviews.length).to_f
-      return average_product_value * average_rating
+      return (average_product_value * average_rating).to_f
     end
   end
 

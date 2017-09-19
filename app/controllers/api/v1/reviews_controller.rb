@@ -14,7 +14,7 @@ class Api::V1::ReviewsController < ApplicationController
       product = Product.find(params[:product_id])
       reviews = ProductSerializer.reviews(product)
       average_rating = product.average_rating
-      product.average_value = product.product_value(product)
+      product.average_value = product.product_value(product).to_f
       product.save!
       render json: { product: product, rating: average_rating, reviews: reviews}
     else
