@@ -1,5 +1,4 @@
 import React from 'react';
-import ProductLifespanField from './ProductLifespanField'
 
 const ReviewField = props => {
   return (
@@ -10,9 +9,6 @@ const ReviewField = props => {
         onChange={props.handlerFunction}
         type='text'
         value={props.content}
-        />
-      <ProductLifespanField
-        handlerFunction={props.handlerFunction}
       />
     </div>
   );
