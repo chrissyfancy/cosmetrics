@@ -23,20 +23,20 @@ class ProductContainer extends React.Component {
     let currentUserId = rootDiv.dataset.currentUserId
 
     fetch(`/api/v1/products/${productId}`)
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-          throw(error);
-        }
-      })
-      .then(response => response.json())
-      .then(body => {
-        this.setState({ product: body.product, reviews: body.reviews, rating: body.rating, productId: productId });
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ product: body.product, reviews: body.reviews, rating: body.rating, productId: productId });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   addNewReview(review) {
@@ -76,13 +76,14 @@ class ProductContainer extends React.Component {
           error = new Error(errorMessage);
           throw(error);
         }
-      })
-      .then(response => response.json())
-      .then(responseData => {
-        return this.setState({ reviews: responseData.reviews, rating: responseData.rating })
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
-    }
+      }
+    )
+    .then(response => response.json())
+    .then(responseData => {
+      return this.setState({ reviews: responseData.reviews, rating: responseData.rating })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
 
   render() {
     return(
