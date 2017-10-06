@@ -1,4 +1,5 @@
 import React from 'react';
+import { IntlProvider, FormattedNumber } from 'react-intl';
 import StarRatingComponent from 'react-star-rating-component';
 
 const ProductDetails = props => {
@@ -9,22 +10,31 @@ const ProductDetails = props => {
 
   let productSize;
   if (props.product.size) {
-    productSize = <p>Size: {props.product.size} oz</p>
+    productSize = <p><strong>Size: </strong>{props.product.size} oz</p>
   }
 
   let productPrice;
   if (props.product.price) {
-    productPrice = <p>Price: {props.product.price}</p>
+    productPrice =
+    <p><strong>Price: </strong>
+      <IntlProvider locale="en">
+        <FormattedNumber value={props.product.price} style="currency" currency="USD"/>
+      </IntlProvider>
+    </p>
   }
 
   let productColor;
   if (props.product.color) {
-    productColor = <p>Color: {props.product.color}</p>
+    productColor = <p><strong>Color: </strong>{props.product.color}</p>
   }
 
   let productDescription;
   if (props.product.description) {
-    productDescription = <p><h4>Description:</h4>{props.product.description}</p>
+    productDescription =
+    <div>
+      <h4>Description:</h4>
+      <p>{props.product.description}</p>
+    </div>
   }
 
   return (
@@ -35,10 +45,10 @@ const ProductDetails = props => {
           <td className="product description">
             <h3>{props.product.brand}</h3>
             <h2 className="product-name">{props.product.name}</h2>
-            <p>{productSize}</p>
-            <p>{productPrice}</p>
-            <p>{productColor}</p>
-            <p>{productDescription}</p>
+            {productSize}
+            {productPrice}
+            {productColor}
+            {productDescription}
             <h4>Average Rating:</h4>
             <StarRatingComponent
               name='rating'
