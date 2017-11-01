@@ -35,7 +35,11 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     address: "localhost",
-    port: 1025
+    port: 1025,
+    authentication: "plain",
+    address: "smtp.mailgun.org",
+    login: "postmaster@cosmetrics.herokuapp.com",
+    password: ENV["MAILGUN_PASSWORD"]
   }
 
   config.action_mailer.default_url_options = {
