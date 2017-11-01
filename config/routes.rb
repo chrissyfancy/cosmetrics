@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
 
+  resources :emails, only: [:create]
+
   resources :reviews do
     post 'upvote'
     post 'downvote'
