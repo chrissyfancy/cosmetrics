@@ -1,6 +1,6 @@
 div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
-  background: black;
-  color: white;
+  background: $black;
+  color: $white;
   font-weight: bold;
   &:hover {
     color: #DE87B1;
@@ -17,12 +17,12 @@ div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
 }
 
 ul.menu, ul.dropdown.menu {
-  background: black;
+  background: $black;
 }
 
 // Navigation search bar styling
 li.search-nav, li.nav {
-  background: black;
+  background: $black;
 }
 
 .admin-features {
@@ -31,7 +31,7 @@ li.search-nav, li.nav {
 
 form#search-form {
   display: inline-flex;
-  background: black;
+  background: $black;
   #search {
     margin-right: 3px;
   }
@@ -42,9 +42,10 @@ form#search-form {
 
 .search-button {
   .fa-search {
-    font-size: 20px;
-    color: white;
-    background-color: black;
+    font-size: 25px;
+    color: $white;
+    background-color: $black;
+    padding-right: 15px;
   }
 }
 
