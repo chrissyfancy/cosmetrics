@@ -2,12 +2,13 @@ class ProductsController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
 
   def index
+    @all_categories = Category.fetched_categories
+    @categories = Category.all
     if params[:search]
       @products = Product.search(params[:search]).page(params[:page]).per(10)
     else
       @products = Product.page(params[:page]).per(10)
     end
-    @categories = Category.all
   end
 
   def show

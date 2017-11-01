@@ -1,9 +1,13 @@
 import React from 'react';
 import ProductContainer from './containers/ProductContainer'
+import BrandContainer from './containers/BrandContainer'
 
 const App = props => {
   return(
-    <ProductContainer />
+    <div>
+      <BrandContainer />
+      <ProductContainer />
+    </div>
   )
 }
 
