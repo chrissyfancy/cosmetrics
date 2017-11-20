@@ -1,0 +1,12 @@
+.pagination a, .pagination span {
+  display: inline-block;
+  text-align: center;
+}
+
+nav.pagination {
+  text-align: center;
+}
+
+span.page.current {
+  background-color: #DE87B1
+}

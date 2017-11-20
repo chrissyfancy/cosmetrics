@@ -6,22 +6,8 @@ td.product.description {
   text-align: left;
 }
 
-// Category sub navigation on product index page
-.category a {
-  color: black;
-  font-size: 20px;
-  font-family: "Helvetica";
-  text-transform: uppercase;
-
-  &:visited {
-    color: black;
-  }
-
-  &:hover {
-    color: #DE87B1;
-    background: white;
-    font-weight: bolder;
-  }
+td.products a {
+  color: #DE87B1;
 }
 
 .product-name {

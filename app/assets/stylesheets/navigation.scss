@@ -2,6 +2,7 @@ div.top-bar, div.top-bar a, li.nav.is-dropdown-submenu-parent {
   background: $black;
   color: $white;
   font-weight: bold;
+  padding: 10px;
   &:hover {
     color: #DE87B1;
   }
@@ -20,46 +21,8 @@ ul.menu, ul.dropdown.menu {
   background: $black;
 }
 
-// Navigation search bar styling
-li.search-nav, li.nav {
-  background: $black;
-}
-
-.admin-features {
-  padding-left: 15px;
-}
-
-form#search-form {
-  display: inline-flex;
-  background: $black;
-  #search {
-    margin-right: 3px;
-  }
-  @media #{$small-only} {
-    text-align: center;
-  }
-}
-
-.search-button {
-  .fa-search {
-    font-size: 25px;
-    color: $white;
-    background-color: $black;
-    padding-right: 15px;
-  }
-}
-
-// Pagination styling
-
-.pagination a, .pagination span {
-  display: inline-block;
-  text-align: center;
-}
-
-nav.pagination {
-  text-align: center;
-}
-
-span.page.current {
-  background-color: #DE87B1
+.fa-chevron-circle-right {
+  color: white;
+  background: black;
+  padding-left: 3px;
 }

@@ -1,0 +1,28 @@
+// Navigation search bar styling
+li.search-nav, li.nav {
+  background: $black;
+}
+
+form#search-form {
+  display: inline-flex;
+  background: $black;
+  #search {
+    margin-right: 3px;
+  }
+  @media #{$small-only} {
+    text-align: center;
+  }
+}
+
+input#search {
+  border-radius: 7px;
+}
+
+.search-button {
+  .fa-search {
+    font-size: 25px;
+    color: $white;
+    background-color: $black;
+    padding-right: 15px;
+  }
+}
