@@ -9,7 +9,6 @@
     @include grid-row();
 	  color: $white;
     background: $black;
-	  padding: rem-calc(60) 0;
 	  a {
   	  color:$white !important;
   	  }
@@ -145,6 +144,10 @@
   }
 }
 
- .fa-copyright {
+div.logo {
+  float: right;
+}
+
+.fa-copyright {
    font-size: 20px;
  }
