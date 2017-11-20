@@ -1,37 +1,24 @@
 <div class="top-bar">
   <div class="top-bar-left">
-    <ul class="dropdown menu mobile-list" data-dropdown-menu>
+    <ul class="dropdown menu mobile-list" data-dropdown-menu data-close-on-click-inside="false">
       <li class="nav root-link"><%= link_to "Cosmetrics", root_path %></li>
+      <li class="nav"><i class="fa fa-bars" aria-hidden="true"></i>
       <% if user_signed_in? %>
-      <li class="nav">Your Account
         <ul class="menu vertical">
           <li><%= link_to 'Edit Your Account', edit_user_registration_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %></li>
           <% if current_user && current_user.role == "admin" %>
-        </ul>
-        <li class="nav admin-features">Admin
-          <ul class="menu vertical">
-            <li><%= link_to "View All Users", admin_users_path %></li>
-            <li><%= link_to "Add New Product", new_product_path %></li>
-            <li><%= link_to "Add New Category", new_category_path %></li>
-          </ul>
+            <%= render 'layouts/admin_nav' %>
           <% end %>
+        </ul>
         <% else %>
-        <li class="nav"><%= link_to 'Sign in', new_user_session_path %></li>
-        <li class="nav"><%= link_to 'Register', new_user_registration_path %></li>
-        <% end %>
-      </ul>
-      </li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li class="search-nav">
-        <%= form_tag(products_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
-        <button class="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <ul class="menu vertical">
+          <li class="nav"><%= link_to 'Sign in', new_user_session_path %></li>
+          <li class="nav"><%= link_to 'Register', new_user_registration_path %></li>
+        </ul>
         <% end %>
       </li>
     </ul>
   </div>
+  <%= render 'layouts/search_bar' %>
 </div>
