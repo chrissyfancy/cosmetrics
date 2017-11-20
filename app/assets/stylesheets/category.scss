@@ -13,3 +13,34 @@
     padding: 15px;
   }
 }
+
+div.category.columns {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #DE87B1;
+  &:hover {
+    font-size: 1.25em;
+    color: #DE87B1;
+    font-weight: bolder;
+  }
+}
+
+.category a {
+  color: black;
+  font-size: 20px;
+  font-family: "Helvetica";
+  text-transform: uppercase;
+
+  &:visited {
+    color: black;
+  }
+
+  &:hover {
+    color: #DE87B1;
+    background: white;
+    font-weight: bolder;
+  }
+}
